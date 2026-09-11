@@ -14,7 +14,7 @@ returns uuid
 language plpgsql
 security definer
 set search_path = ''
-as 3308101
+as $$
 declare
   invite public.household_invites;
 begin
@@ -49,7 +49,7 @@ begin
 
   return invite.household_id;
 end;
-3308101;
+$$;
 
 revoke all on function public.redeem_invite(text) from public;
 grant execute on function public.redeem_invite(text) to authenticated;
